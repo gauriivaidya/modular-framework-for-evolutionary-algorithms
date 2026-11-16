@@ -1,0 +1,122 @@
+# Discrete Optimization Problems
+
+Three classic discrete optimization problems designed for use with the Genetic Algorithm framework.
+
+## Overview
+
+These problems are located in the `problems/discrete_problems/` folder and can be accessed by specifying `"discrete_problems.ProblemName"` in your configuration file. Each problem inherits from the `OptimizationProblem` base class and implements its own evaluation function with appropriate constraints.
+
+## Problems
+
+### 1. Knapsack Problem (`knapsack.py`)
+
+The 0/1 Knapsack Problem: select items to maximize total value without exceeding weight capacity.
+
+- **Representation**: Binary (0 = not selected, 1 = selected)
+- **Usage**: `"problem": "discrete_problems.Knapsack"`
+- **Objective**: Maximize value while staying within capacity constraint
+
+
+### 2. P-Median Problem (`p_median.py`)
+
+Facility location problem: select P facilities to minimize total customer-to-facility distances.
+
+- **Representation**: Binary (0 = not a facility, 1 = facility location)
+- **Usage**: `"problem": "discrete_problems.PMedian"`
+- **Objective**: Minimize total assignment cost with exactly P facilities
+
+### 3. Graph Coloring Problem (`graph_coloring.py`)
+
+Vertex coloring: assign colors to graph vertices so adjacent vertices have different colors.
+
+- **Representation**: Integer (each value represents a color index)
+- **Usage**: `"problem": "discrete_problems.GraphColoring"`
+- **Objective**: Minimize number of colors while avoiding conflicts
+
+
+## Configuration
+
+### Example Configuration
+```json
+{
+  "run_settings": {
+    "algorithm": "GeneticAlgorithm",
+    "problem": "discrete_problems.Knapsack",
+    "num_runs": 3
+  },
+  "algorithm_params": {
+    "GeneticAlgorithm": {
+      "population_size": 100,
+      "num_generations": 200,
+      "representation": "binary",
+      "crossover_method": "twopx",
+      "mutation_method": "inversion",
+      "selection_method": "tournament",
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "tournament_size": 3,
+      "elitism": 2,
+      "multi_parent": false
+    }
+  },
+  "problem_params": {
+    "Knapsack": {
+      "num_items": 50,
+      "capacity": 500,
+      "seed": 42
+    }
+  }
+}
+```
+
+
+### For Binary Problems (Knapsack, P-Median)
+
+**Crossover operators:**
+- `twopx` - Two-point crossover (recommended)
+- `ox` - Order crossover
+- `cx` - Cycle crossover
+
+**Mutation operators:**
+- `inversion` - Inverts a segment (recommended)
+- `scramble` - Scrambles a segment
+- `swap` - Swaps two positions
+
+**Settings:**
+```json
+{
+  "representation": "binary",
+  "crossover_method": "twopx",
+  "mutation_method": "inversion",
+  "multi_parent": false
+}
+```
+
+### For Integer Problems (Graph Coloring)
+
+**Crossover operators:**
+- `ox` - Order crossover
+- `pmx` - Partially mapped crossover
+
+**Mutation operators:**
+- `scramble` - Scrambles a segment (recommended)
+- `swap` - Swaps two positions
+- `inversion` - Inverts a segment
+
+**Settings:**
+```json
+{
+  "representation": "integer",
+  "crossover_method": "pmx",
+  "mutation_method": "scramble",
+  "multi_parent": false
+}
+```
+
+## Understanding Results
+
+All problems use **minimization**, so:
+- Lower fitness values = better solutions
+- Negative fitness often indicates better solutions (e.g., -780 means value of 780)
+
+

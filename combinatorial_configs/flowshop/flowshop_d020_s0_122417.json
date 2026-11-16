@@ -1,0 +1,46 @@
+{
+  "run_settings": {
+    "algorithm": "GeneticAlgorithm",
+    "problem": "discrete_problems.Flowshop",
+    "num_runs": 10
+  },
+  "algorithm_params": {
+    "GeneticAlgorithm": {
+      "population_size": 50,
+      "num_generations": 800,
+      "crossover_method": "ox",
+      "mutation_method": "swap",
+      "selection_method": "tournament",
+      "representation": "permutation",
+      "crossover_rate": 0.818,
+      "mutation_rate": 0.354,
+      "tournament_size": 7,
+      "elitism": 2,
+      "multi_parent": false,
+      "num_parents": 2
+    }
+  },
+  "problem_params": {
+    "Flowshop": {
+      "n_jobs": 20,
+      "n_machines": 5,
+      "seed": 0
+    }
+  },
+  "_meta": {
+    "config_id": 122417,
+    "problem": "Flowshop",
+    "representation": "permutation",
+    "dimension": 20,
+    "instance_seed": 0,
+    "eval_budget": 40000,
+    "population_size": 50,
+    "num_generations": 800,
+    "mutation_method": "swap",
+    "selection_method": "tournament",
+    "tournament_size": 7,
+    "elitism": 2,
+    "crossover_rate": 0.818,
+    "mutation_rate": 0.354
+  }
+}

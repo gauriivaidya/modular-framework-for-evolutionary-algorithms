@@ -1,0 +1,46 @@
+{
+  "run_settings": {
+    "algorithm": "GeneticAlgorithm",
+    "problem": "discrete_problems.MAXSAT",
+    "num_runs": 10
+  },
+  "algorithm_params": {
+    "GeneticAlgorithm": {
+      "population_size": 250,
+      "num_generations": 160,
+      "crossover_method": "twopx",
+      "mutation_method": "scramble",
+      "selection_method": "rank",
+      "representation": "binary",
+      "crossover_rate": 0.723,
+      "mutation_rate": 0.422,
+      "tournament_size": 3,
+      "elitism": 3,
+      "multi_parent": false,
+      "num_parents": 2
+    }
+  },
+  "problem_params": {
+    "MAXSAT": {
+      "num_variables": 20,
+      "clauses_per_var": 4.267,
+      "seed": 3
+    }
+  },
+  "_meta": {
+    "config_id": 72383,
+    "problem": "MAXSAT",
+    "representation": "binary",
+    "dimension": 20,
+    "instance_seed": 3,
+    "eval_budget": 40000,
+    "population_size": 250,
+    "num_generations": 160,
+    "mutation_method": "scramble",
+    "selection_method": "rank",
+    "tournament_size": 3,
+    "elitism": 3,
+    "crossover_rate": 0.723,
+    "mutation_rate": 0.422
+  }
+}

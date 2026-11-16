@@ -1,0 +1,11 @@
+https://people.brunel.ac.uk/~mastjjb/jeb/info.html
+
+OR-Library is a collection of test data sets for a variety of Operations Research (OR) problems.
+
+These test data sets can be accessed via the WWW using the links below.
+
+OR-Library was originally described in J.E.Beasley, "OR-Library: distributing test problems by electronic mail", Journal of the Operational Research Society 41(11) (1990) pp1069-1072.
+
+Those concerned as to any legal issues associated with using the test data sets in OR-Library should see here
+
+

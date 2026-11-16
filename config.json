@@ -1,0 +1,484 @@
+{
+  "run_settings": {
+    "algorithm": "GeneticAlgorithm",
+    "problem": "MDMKP",
+    "num_runs": 3
+  },
+
+  "coco_benchmark": {
+    "functions": "1-2",
+    "dimensions": [5,10],
+    "instances": [1, 2],
+    "num_runs": 2,
+    "max_evaluations": 10000,
+    "base_seed": 42,
+    "save_plots": false
+  },
+
+  "problem_params": {
+    "COCO": {
+      "suite": "bbob",
+      "function": 1,
+      "dimension": 5,
+      "instance": 1
+    },
+    "MDMKP": {
+      "instance": "mdmkp_ct1.txt",
+      "test_problem": 1,
+      "variant": 1,
+      "penalty_factor": 10000.0
+    },
+    "SetCovering": {
+      "instance": "scp41.txt",
+      "penalty_factor": 10000.0
+    },
+    "BinPacking": {
+      "instance": "binpack1.txt",
+      "test_problem": 1
+    },
+    "JobShop": {
+      "instance": "jobshop1.txt",
+      "test_problem": "ft06"
+    },
+    "GraphColoring": {
+      "instance": "gcol1.txt"
+    },
+    "VRP": {
+      "instance": "vrpnc1.txt"
+    }
+
+  },
+
+  "algorithm_params": {
+
+    "GeneticAlgorithm": {
+      "population_size": 50,
+      "num_generations": 100,
+      "crossover_method": "mppmx",
+      "mutation_method": "scramble",
+      "selection_method": "bts",
+      "representation": "permutation",
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "tournament_size": 3,
+      "elitism": 2,
+      "multi_parent": true,
+      "num_parents": 3
+    
+    },
+
+    "ACO": {
+      "domain": "continuous",
+
+      "variant": "acor",
+      "construction_method": "gaussian_sampling",
+      "pheromone_method": "solution_archive",
+      "heuristic_method": null,
+
+      "num_ants": 30,
+      "num_generations": 1000,
+
+      "archive_size": 40,
+      "q": 0.5,
+      "xi": 0.85,
+
+      "max_evaluations": 10000,
+
+      "patience": null,
+      "seed": 42
+    },
+
+    "AdaptiveACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "alpha_start": 0.5,
+      "alpha_end": 2.0,
+      "beta_start": 4.0,
+      "beta_end": 1.0,
+      "evaporation_start": 0.6,
+      "evaporation_end": 0.2,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+    },
+    "AntColonySystem": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.1,
+      "local_evaporation_rate": 0.1,
+      "q0": 0.9,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+    "ElitistACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 3.0,
+      "evaporation_rate": 0.4,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 5.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+    "FocusedACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "focus_size": 8,
+      "local_search": true,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+    
+    "BeamACO": {
+      "num_ants": 20,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "beam_width": 5,
+      "expansion_size": 5,
+      "stochastic_beam": true,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+    "HeterogeneousACO": {
+      "num_ants": 45,
+      "num_generations": 150,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "type_cycle": true,
+      "ant_types": [
+        {
+          "name": "explorer",
+          "alpha": 0.5,
+          "beta": 3.0,
+          "q0": 0.2
+        },
+        {
+          "name": "exploiter",
+          "alpha": 2.0,
+          "beta": 1.0,
+          "q0": 0.9
+        },
+        {
+          "name": "balanced",
+          "alpha": 1.0,
+          "beta": 2.0,
+          "q0": 0.5
+        }
+      ],
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "HyperCubeACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.3,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "pheromone_min": 0.001,
+      "pheromone_max": 0.999,
+      "deposit_best_only": true,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "ASRank": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.4,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "num_ranked_ants": 10,
+      "global_best_weight": 10,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+    },
+      "BWAS": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.4,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "best_weight": 2.0,
+      "worst_penalty_weight": 0.5,
+      "pheromone_min": 1e-6,
+      "stagnation_generations": 20,
+      "mutation_rate": 0.05,
+      "mutation_strength": 0.2,
+      "restart_on_stagnation": false,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+    },
+      "MaxMinACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.3,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "tau_min": 0.01,
+      "tau_max": 10.0,
+      "deposit_best_only": true,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+    },
+      "MMAS": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.3,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "tau_min": 0.01,
+      "tau_max": 10.0,
+      "use_global_best": true,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "MultiColonyACO": {
+      "num_ants": 20,
+      "num_generations": 150,
+      "num_colonies": 3,
+      "migration_interval": 10,
+      "migration_weight": 1.0,
+      "exchange_mode": "global_best",
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "ParallelACO": {
+      "num_ants": 25,
+      "num_generations": 150,
+      "num_colonies": 4,
+      "migration_interval": 10,
+      "migration_strength": 1.0,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "RankBasedACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.4,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "num_ranked_ants": 10,
+      "global_best_weight": 2.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "PopulationACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.2,
+      "q": 100.0,
+      "initial_pheromone": 0.1,
+      "elitist_weight": 1.0,
+      "population_size": 20,
+      "deposit_weight": 1.0,
+      "replace_strategy": "worst",
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "RestartACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 2.0,
+      "restart_generations": 20,
+      "restart_pheromone": 1.0,
+      "preserve_best": true,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 50
+  },
+      "SmoothingACO": {
+      "num_ants": 40,
+      "num_generations": 150,
+      "alpha": 1.0,
+      "beta": 2.0,
+      "evaporation_rate": 0.5,
+      "q": 100.0,
+      "initial_pheromone": 1.0,
+      "elitist_weight": 1.0,
+      "smoothing_interval": 10,
+      "smoothing_factor": 0.2,
+      "target_pheromone": 1.0,
+      "seed": null,
+      "convergence_tol": 1e-12,
+      "patience": 30
+  },
+      "PSO": {
+      "population_size": 50,
+      "num_generations": 200,
+      "w": 0.9,
+      "c1": 0.2,
+      "c2": 0.8
+  },
+      "BatAlgorithm": {
+      "population_size": 40,
+      "num_generations": 100,
+      "alpha": 0.97,
+      "gamma": 0.1,
+      "fmin": 0.0,
+      "fmax": 2.0
+  },
+      "WhaleOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "b": 1.0
+  },
+      "AfricanBuffaloOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "lp1": 0.2,
+      "lp2": 0.8
+  },
+      "BirdSwarmAlgorithm": {
+      "population_size": 50,
+      "num_generations": 100,
+      "c1": 1.5,
+      "c2": 1.5,
+      "a1": 1.0,
+      "a2": 1.0,
+      "fq": 3,
+      "p_producer": 0.9,
+      "fl": 0.7
+  },
+      "AnimalMigrationOptimization": {
+      "population_size": 50,
+      "num_generations": 100
+    },
+    "WeightlessSwarmOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "c1": 1.7,
+      "c2": 1.7
+    },
+    "SeeSeePartridgeOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "w": 0.9,
+      "c": 0.8
+    },
+    "ChickenSwarmOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "e": 0.001
+    },
+    "SocialSpiderOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "pf": 0.7
+    },
+    "JumpingFrogsOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "c1": 0.1,
+      "c2": 0.2,
+      "c3": 0.5,
+      "k_neighbors": 15
+    },
+    "TermiteColonyOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "rho": 0.8
+    },
+    "ArtificialBeeColony": {
+      "population_size": 50,
+      "num_generations": 100,
+      "limit": 100
+    },
+    "CoyoteOptimization": {
+      "population_size": 50,
+      "num_generations": 100,
+      "num_packs": 5,
+      "coyotes_per_pack": 10
+    },
+    "HierarchicalSwarmOptimization": {
+      "population_size": 100,
+      "num_generations": 100,
+      "c1": 1.3667,
+      "c2": 1.3667,
+      "c3": 1.3667,
+      "num_subswarms": 10
+    },
+    "PigeonInspiredOptimization": {
+      "population_size": 50,
+      "num_generations": 200,
+      "R": 0.2,
+      "nc1_max": 150
+    },
+    "SailfishOptimizer": {
+      "population_size": 100,
+      "num_generations": 100,
+      "s_ratio": 0.2,
+      "A": 4,
+      "e": 1e-5
+ }
+
+  }
+  
+}
